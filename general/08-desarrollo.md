@@ -7,8 +7,8 @@ Entorno para TypeScript/Node, contenedores, bases de datos y editor.
 ## Por qué así
 
 - Herramientas de desarrollo **nativas**: necesitan ver todo el sistema (compiladores, Docker, tus proyectos).
-- **Node con nvm**: cambiás de versión por proyecto sin tocar el sistema.
-- **Bases de datos en contenedores**: no ensucian Fedora y reproducís el entorno fácil.
+- **Node con nvm**: cambias de versión por proyecto sin tocar el sistema.
+- **Bases de datos en contenedores**: no ensucian Fedora y reproduces el entorno fácil.
 
 ## Pasos
 
@@ -36,7 +36,7 @@ git config --global init.defaultBranch main
 ```bash
 ssh-keygen -t ed25519 -C "tu@email.com"
 ```
-Genera la clave. Luego mostrala y pegala en GitHub/GitLab:
+Genera la clave. Luego muéstrala y pégala en GitHub/GitLab:
 ```bash
 cat ~/.ssh/id_ed25519.pub
 ```
@@ -64,7 +64,7 @@ sudo dnf install tmux
 ```bash
 sudo dnf install neovim
 ```
-Para LazyVim: necesita Neovim reciente, `git`, un compilador (paso 1), `ripgrep`, `fd-find` y una Nerd Font. Verificá con `nvim --version`.
+Para LazyVim: necesita Neovim reciente, `git`, un compilador (paso 1), `ripgrep`, `fd-find` y una Nerd Font. Verifica con `nvim --version`.
 
 ### 5. Node con nvm
 nvm **no está en los repos de Fedora**; se instala con su script oficial (versión fijada, no `master`):
@@ -74,7 +74,7 @@ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.8/install.sh | bash
 ```
 Descarga y ejecuta el instalador. Agrega unas líneas a `~/.bashrc`.
 
-Cerrá y abrí la terminal, y:
+Cierra y abre la terminal, y:
 ```bash
 nvm install --lts
 ```
@@ -88,7 +88,7 @@ La deja como predeterminada en cada terminal nueva.
 Verificar versión de nvm antes de pinchar el tag: https://github.com/nvm-sh/nvm/releases
 
 ### 6. Docker Engine (repo oficial)
-Fuente: [docs.docker.com](https://docs.docker.com/engine/install/fedora/). La página cubre Fedora 44 y 43; si usás 45, revisala por si cambió.
+Fuente: [docs.docker.com](https://docs.docker.com/engine/install/fedora/). La página cubre Fedora 44 y 43; si usas 45, revísala por si cambió.
 
 Quitar paquetes no oficiales que puedan chocar:
 ```bash
@@ -105,7 +105,7 @@ Instalar (es el set oficial: motor, CLI, runtime, buildx y compose):
 ```bash
 sudo dnf install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 ```
-Al pedir aceptar la clave GPG, verificá que termine en `…621E 9F35` (huella `060A 61C5 1B55 8A7F 742B 77AA C52F EB6B 621E 9F35`).
+Al pedir aceptar la clave GPG, verifica que termine en `…621E 9F35` (huella `060A 61C5 1B55 8A7F 742B 77AA C52F EB6B 621E 9F35`).
 
 Activar y arrancar:
 ```bash
@@ -116,11 +116,11 @@ Usar Docker sin `sudo`:
 ```bash
 sudo usermod -aG docker $USER
 ```
-Cerrá sesión y volvé a entrar. **Aviso de seguridad:** el grupo `docker` equivale a acceso root en tu máquina. Es lo habitual en desarrollo local, pero no lo hagas en un equipo compartido.
+Cierra sesión y vuelve a entrar. **Aviso de seguridad:** el grupo `docker` equivale a acceso root en tu máquina. Es lo habitual en desarrollo local, pero no lo hagas en un equipo compartido.
 
-> **SELinux:** al montar carpetas en un contenedor agregá `:Z` (`-v ./data:/data:Z`) o el contenedor no podrá escribir. Es una de las causas más comunes de "permission denied" en Fedora. No desactives SELinux.
+> **SELinux:** al montar carpetas en un contenedor agrega `:Z` (`-v ./data:/data:Z`) o el contenedor no podrá escribir. Es una de las causas más comunes de "permission denied" en Fedora. No desactives SELinux.
 
-> Alternativa: Fedora ya trae **Podman**, compatible con comandos Docker y sin demonio. Si no necesitás Docker específicamente, podés usarlo.
+> Alternativa: Fedora ya trae **Podman**, compatible con comandos Docker y sin demonio. Si no necesitas Docker específicamente, puedes usarlo.
 
 ### 7. VS Code (repo de Microsoft)
 ```bash
@@ -147,14 +147,14 @@ docker run -d --name pg -e POSTGRES_PASSWORD=cambiame -p 5432:5432 -v pgdata:/va
 - `-v pgdata:…`: volumen para que no pierdas los datos al borrar el contenedor.
 - La contraseña es solo para desarrollo local. En proyectos reales, credenciales por variables de entorno y `.env` fuera de git.
 
-SQL Server y MySQL funcionan igual (imágenes `mcr.microsoft.com/mssql/server` y `mysql`). Conectate con DBeaver ([06](06-apps.md)).
+SQL Server y MySQL funcionan igual (imágenes `mcr.microsoft.com/mssql/server` y `mysql`). Conéctate con DBeaver ([06](06-apps.md)).
 
 ### 9. Nerd Font (opcional, para terminal/Neovim)
-Descargá *JetBrainsMono Nerd Font* desde nerdfonts.com y:
+Descarga *JetBrainsMono Nerd Font* desde nerdfonts.com y:
 ```bash
 mkdir -p ~/.local/share/fonts
 ```
-Copiá los `.ttf` ahí y:
+Copia los `.ttf` ahí y:
 ```bash
 fc-cache -f
 ```

@@ -21,7 +21,7 @@ sudo fwupdmgr get-updates
 ```
 Revisa firmware (aplicar con `sudo fwupdmgr update`).
 
-Después de actualizar el **kernel**, esperá unos minutos antes de reiniciar: `akmod-nvidia` compila el módulo ([05](../laptop-nvidia/05-nvidia.md)). Comprobá:
+Después de actualizar el **kernel**, espera unos minutos antes de reiniciar: `akmod-nvidia` compila el módulo ([05](../laptop-nvidia/05-nvidia.md)). Comprueba:
 ```bash
 modinfo -F version nvidia
 ```
@@ -45,7 +45,7 @@ Vacía la caché de DNF.
 
 ## Plan B #1: kernel anterior
 
-Fedora conserva varios kernels. Si un kernel nuevo rompe Wi-Fi, NVIDIA o suspensión: en el menú GRUB (mantené `Shift` o `Esc` al arrancar, según tu equipo) elegí el kernel anterior en *Advanced options*.
+Fedora conserva varios kernels. Si un kernel nuevo rompe Wi-Fi, NVIDIA o suspensión: en el menú GRUB (mantén `Shift` o `Esc` al arrancar, según tu equipo) elige el kernel anterior en *Advanced options*.
 
 ## Plan B #2: Wi-Fi Realtek RTL8852BE inestable
 
@@ -53,7 +53,7 @@ Específico del Lenovo LOQ: ver [11-wifi-realtek](../laptop-nvidia/11-wifi-realt
 
 ## Plan B #3: snapshots Btrfs (opcional)
 
-Fedora usa Btrfs por defecto. Un snapshot es una foto del sistema a la que podés volver. **No reemplaza un backup**: si el disco muere, se pierde todo.
+Fedora usa Btrfs por defecto. Un snapshot es una foto del sistema a la que puedes volver. **No reemplaza un backup**: si el disco muere, se pierde todo.
 
 ```bash
 sudo dnf install snapper
@@ -71,16 +71,16 @@ Snapshots automáticos por hora y limpieza de los viejos. Solo actúan sobre sub
 ```bash
 sudo snapper -c root create --description "antes de actualizar"
 ```
-Snapshot manual (hacelo antes de actualizaciones grandes).
+Snapshot manual (hazlo antes de actualizaciones grandes).
 
 ```bash
 sudo snapper -c root list
 ```
 Lista los snapshots.
 
-Interfaz gráfica opcional: `btrfs-assistant`. Verificá en su documentación el soporte con la disposición de subvolúmenes por defecto de Fedora (`root` y `home`, no `@`).
+Interfaz gráfica opcional: `btrfs-assistant`. Verifica en su documentación el soporte con la disposición de subvolúmenes por defecto de Fedora (`root` y `home`, no `@`).
 
-> **Timeshift no es compatible** con el layout por defecto de Fedora (usa `@`/`@home`). Usá Snapper.
+> **Timeshift no es compatible** con el layout por defecto de Fedora (usa `@`/`@home`). Usa Snapper.
 
 ## Backups (obligatorio si hay datos importantes)
 
@@ -93,9 +93,9 @@ Déjà Dup: backup simple con interfaz gráfica a disco externo o nube.
 
 ## Cambiar de versión de Fedora (44 → 45)
 
-Hacelo cuando el lanzamiento lleve algunas semanas, con extensiones desactivadas ([10](10-gnome.md)), un snapshot reciente y un backup. Seguí la guía oficial: [Upgrading Fedora offline](https://docs.fedoraproject.org/en-US/quick-docs/upgrading-fedora-offline/) o *GNOME Software → Actualizaciones*.
+Hazlo cuando el lanzamiento lleve algunas semanas, con extensiones desactivadas ([10](10-gnome.md)), un snapshot reciente y un backup. Sigue la guía oficial: [Upgrading Fedora offline](https://docs.fedoraproject.org/en-US/quick-docs/upgrading-fedora-offline/) o *GNOME Software → Actualizaciones*.
 
-Si usás Docker, revisá luego si [su página para Fedora](https://docs.docker.com/engine/install/fedora/) ya lista la nueva versión.
+Si usas Docker, revisa luego si [su página para Fedora](https://docs.docker.com/engine/install/fedora/) ya lista la nueva versión.
 
 ## Verificar salud del sistema
 

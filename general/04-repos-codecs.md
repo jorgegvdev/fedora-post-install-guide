@@ -70,7 +70,7 @@ sudo dnf install libva-utils
 ```bash
 vainfo
 ```
-Debe listar varios `VAProfile…`. Si da error, reiniciá y reintentá.
+Debe listar varios `VAProfile…`. Si da error, reinicia y reintenta.
 
 ```bash
 rpm -q ffmpeg

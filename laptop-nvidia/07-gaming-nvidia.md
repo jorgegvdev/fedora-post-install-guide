@@ -5,7 +5,7 @@ Complementa [07-gaming](../general/07-gaming.md). Requiere [05](05-nvidia.md).
 ## Usar la NVIDIA (muy importante en laptop)
 Sin esto, un juego puede correr en la Intel.
 
-**Opción simple:** abrí Steam con clic derecho → *Launch using Discrete Graphics Card*.
+**Opción simple:** abre Steam con clic derecho → *Launch using Discrete Graphics Card*.
 
 **Opción por juego:** en Steam, clic derecho al juego → *Propiedades → Opciones de lanzamiento*:
 ```

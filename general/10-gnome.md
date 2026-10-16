@@ -33,7 +33,7 @@ Es la forma actual de explorar e instalar. La integración vieja del navegador c
 | **Blur my Shell** | Efectos de desenfoque (solo estético) | Baja |
 | **Tiling Shell** | Ventanas en mosaico | Opcional |
 
-**Compatibilidad (verificada en las fuentes):** AppIndicator, Dash to Dock y Dash to Panel tienen soporte confirmado para GNOME 51. Para **Caffeine, Just Perfection y Blur my Shell** no encontré confirmación para GNOME 51: miralas en extensions.gnome.org (columna *Shell Versions*) antes de depender de ellas en Fedora 45.
+**Compatibilidad (verificada en las fuentes):** AppIndicator, Dash to Dock y Dash to Panel tienen soporte confirmado para GNOME 51. Para **Caffeine, Just Perfection y Blur my Shell** no encontré confirmación para GNOME 51: míralas en extensions.gnome.org (columna *Shell Versions*) antes de depender de ellas en Fedora 45.
 
 ### 3. Alternativa más estable: extensiones como RPM
 Fedora empaqueta algunas. Se actualizan con `dnf` y están probadas con tu versión de GNOME (aunque a veces van un poco atrás del upstream).
@@ -51,7 +51,7 @@ gnome-extensions list
 ```bash
 gnome-extensions enable dash-to-dock@micxgx.gmail.com
 ```
-(usá el identificador exacto que muestre `list`). En Wayland, **cerrá sesión y volvé a entrar** para que cargue.
+(usa el identificador exacto que muestre `list`). En Wayland, **cierra sesión y vuelve a entrar** para que cargue.
 
 ### 4. Ajustes rápidos por terminal
 Botones minimizar/maximizar en las ventanas (GNOME solo muestra cerrar):
@@ -68,7 +68,7 @@ gsettings set org.gnome.desktop.peripherals.touchpad tap-to-click true
 ```
 
 ### 5. Buenas costumbres
-- **Antes de actualizar de versión** (44 → 45), desactivá todas las extensiones de terceros y activalas de a una después.
+- **Antes de actualizar de versión** (44 → 45), desactiva todas las extensiones de terceros y actívalas una por una después.
 - Si GNOME falla al iniciar sesión tras una actualización, casi siempre es una extensión: se desactivan desde otra sesión TTY (`gnome-extensions disable <id>`).
 - No instales más de ~6-8.
 

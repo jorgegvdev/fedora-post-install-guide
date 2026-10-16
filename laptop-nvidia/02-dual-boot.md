@@ -6,18 +6,18 @@ Fedora y Windows en el mismo equipo, eligiendo al arrancar.
 
 ## Por qué importa
 
-El dual boot rompe cosas cuando se descuidan 4 puntos: **cifrado BitLocker**, **inicio rápido de Windows**, **reloj** y **qué disco usás**. Resolvelos *antes* de instalar.
+El dual boot rompe cosas cuando se descuidan 4 puntos: **cifrado BitLocker**, **inicio rápido de Windows**, **reloj** y **qué disco usas**. Resuélvelos *antes* de instalar.
 
 ## Antes de instalar (en Windows)
 
 ### 1. Backup
-Respaldá lo importante a un disco externo o nube. Tocar particiones siempre tiene riesgo.
+Respalda lo importante a un disco externo o nube. Tocar particiones siempre tiene riesgo.
 
 ### 2. Revisar BitLocker / cifrado de dispositivo
-Windows 11 Home puede activar "Cifrado de dispositivo" solo. Si está activo y cambiás el arranque, Windows puede pedir la clave de recuperación.
+Windows 11 Home puede activar "Cifrado de dispositivo" solo. Si está activo y cambias el arranque, Windows puede pedir la clave de recuperación.
 
 Ruta: *Configuración → Privacidad y seguridad → Cifrado de dispositivo*.
-Si está activo, guardá la clave de recuperación en https://account.microsoft.com/devices/recoverykey.
+Si está activo, guarda la clave de recuperación en https://account.microsoft.com/devices/recoverykey.
 
 ### 3. Desactivar inicio rápido e hibernación
 Con inicio rápido, Windows deja sus discos "a medio apagar" y Linux no puede montarlos bien.
@@ -30,22 +30,22 @@ powercfg /h off
 Desactiva hibernación (y con ella el inicio rápido).
 
 ### 4. Usar un disco para cada sistema
-Tenés dos NVMe. La opción más segura: **Windows en uno, Fedora entero en el otro**. Así el instalador de Fedora no toca particiones de Windows.
+Tienes dos NVMe. La opción más segura: **Windows en uno, Fedora entero en el otro**. Así el instalador de Fedora no toca particiones de Windows.
 
-Identificá cuál es cuál en *Administración de discos* de Windows (clic derecho en Inicio).
+Identifica cuál es cuál en *Administración de discos* de Windows (clic derecho en Inicio).
 
 ### 5. BIOS
-- Entrar a BIOS: tecla `F2` al encender (en LOQ suele ser `F2`; menú de arranque `F12`). Confirmalo en tu equipo.
-- Dejá **Secure Boot desactivado** (como está ahora). Simplifica NVIDIA.
+- Entrar a BIOS: tecla `F2` al encender (en LOQ suele ser `F2`; menú de arranque `F12`). Confírmalo en tu equipo.
+- Deja **Secure Boot desactivado** (como está ahora). Simplifica NVIDIA.
 - Modo de almacenamiento: AHCI (no RAID/Intel RST) para que Linux vea los NVMe.
 
-> **Ojo:** algunos juegos de Windows con anticheat (ej: Valorant/Vanguard) exigen Secure Boot activo. Si lo activás después, hay que firmar el módulo NVIDIA. Ver [05](05-nvidia.md).
+> **Ojo:** algunos juegos de Windows con anticheat (ej: Valorant/Vanguard) exigen Secure Boot activo. Si lo activas después, hay que firmar el módulo NVIDIA. Ver [05](05-nvidia.md).
 
 ## En la instalación
 
-- Usá Fedora Workstation (ISO desde fedoraproject.org, grabada con Fedora Media Writer).
-- En el paso de almacenamiento elegí **el disco destinatario para Fedora** y dejá el sistema de archivos por defecto (**Btrfs**: compresión transparente y snapshots).
-- Fedora instala su arranque (GRUB) y detecta Windows. Verificá en la instalación que el disco de Windows **no** esté seleccionado para borrado.
+- Usa Fedora Workstation (ISO desde fedoraproject.org, grabada con Fedora Media Writer).
+- En el paso de almacenamiento elige **el disco destinatario para Fedora** y deja el sistema de archivos por defecto (**Btrfs**: compresión transparente y snapshots).
+- Fedora instala su arranque (GRUB) y detecta Windows. Verifica en la instalación que el disco de Windows **no** esté seleccionado para borrado.
 
 ## Después de instalar
 
@@ -57,7 +57,7 @@ Windows guarda la hora local en el hardware; Linux guarda UTC. Resultado: la hor
 ```
 reg add "HKLM\SYSTEM\CurrentControlSet\Control\TimeZoneInformation" /v RealTimeIsUniversal /d 1 /t REG_QWORD /f
 ```
-Hace que Windows interprete el reloj de hardware como UTC (método habitual, no figura en Fedora Docs). Después, en Windows, sincronizá la hora desde *Configuración → Hora e idioma*.
+Hace que Windows interprete el reloj de hardware como UTC (método habitual, no figura en Fedora Docs). Después, en Windows, sincroniza la hora desde *Configuración → Hora e idioma*.
 
 **Alternativa simple: Linux usa hora local.**
 ```bash
@@ -74,14 +74,14 @@ Detecta otros sistemas operativos.
 ```bash
 sudo os-prober
 ```
-Debe imprimir una línea con Windows Boot Manager. Si no imprime nada, GRUB no tiene qué agregar (revisá que Windows esté instalado en modo UEFI).
+Debe imprimir una línea con Windows Boot Manager. Si no imprime nada, GRUB no tiene qué agregar (revisa que Windows esté instalado en modo UEFI).
 
 ```bash
 sudo grub2-mkconfig -o /boot/grub2/grub.cfg
 ```
 Regenera el menú de arranque.
 
-Si sigue sin aparecer, revisá `GRUB_DISABLE_OS_PROBER` en `/etc/default/grub`.
+Si sigue sin aparecer, revisa `GRUB_DISABLE_OS_PROBER` en `/etc/default/grub`.
 
 ### Windows Update cambia el orden de arranque
 Pasa a veces. Se arregla desde el menú de BIOS (`F2`) reordenando, o con `efibootmgr`:

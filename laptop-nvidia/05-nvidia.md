@@ -13,7 +13,7 @@ Sin driver propietario la RTX 4060 usa `nouveau` (lento, sin CUDA, sin buen rend
 ## Secure Boot
 
 Tu Secure Boot está **desactivado**: no hay que firmar nada. Es el camino simple.
-Si lo activás en el futuro, hay que firmar el módulo *antes* de instalar el driver (ver al final).
+Si lo activas en el futuro, hay que firmar el módulo *antes* de instalar el driver (ver al final).
 
 ## Pasos
 
@@ -44,7 +44,7 @@ Pasan hasta ~5 minutos en segundo plano. **No reinicies todavía.**
 ```bash
 modinfo -F version nvidia
 ```
-Si muestra una versión (ej: `580.xx`), está listo. Si dice "not found", esperá y repetí.
+Si muestra una versión (ej: `580.xx`), está listo. Si dice "not found", espera y repite.
 
 ### 5. Reiniciar
 ```bash
@@ -75,7 +75,7 @@ Con esta línea:
 ```
 options nvidia NVreg_DynamicPowerManagement=0x02
 ```
-Fuente: [RPM Fusion Optimus](https://rpmfusion.org/Howto/Optimus). Reiniciá para aplicar.
+Fuente: [RPM Fusion Optimus](https://rpmfusion.org/Howto/Optimus). Reinicia para aplicar.
 
 ## Usar la NVIDIA a demanda (Optimus)
 
@@ -101,7 +101,7 @@ Debe mostrar la RTX 4060 y la versión del driver.
 ```bash
 mokutil --sb-state
 ```
-Debe decir `SecureBoot disabled` (tu configuración actual). Si lo activás después, debe decir `enabled` y el módulo NVIDIA tiene que estar firmado.
+Debe decir `SecureBoot disabled` (tu configuración actual). Si lo activas después, debe decir `enabled` y el módulo NVIDIA tiene que estar firmado.
 
 ```bash
 switcherooctl list
@@ -120,16 +120,16 @@ El módulo se recompila solo al arrancar el kernel nuevo. Si tras actualizar el 
 ```bash
 sudo akmods --force
 ```
-Fuerza la recompilación. Luego `sudo dracut --force` y reiniciá. Plan B: arrancá el kernel anterior desde GRUB ([11](../general/11-mantenimiento.md)).
+Fuerza la recompilación. Luego `sudo dracut --force` y reinicia. Plan B: arranca el kernel anterior desde GRUB ([11](../general/11-mantenimiento.md)).
 
-## Si activás Secure Boot después
+## Si activas Secure Boot después
 
 1. `sudo dnf install kmodtool akmods mokutil openssl`
 2. `sudo kmodgenca -a` — genera la clave local de firma.
 3. `sudo mokutil --import /etc/pki/akmods/certs/public_key.der` — pide una contraseña de un solo uso.
-4. Reiniciá y, en la pantalla azul MOK, elegí *Enroll MOK* con esa contraseña (el teclado está en QWERTY en esa pantalla).
-5. Reiniciá otra vez cuando lo pida.
-6. Recién ahí instalá/recompilá `akmod-nvidia`.
+4. Reinicia y, en la pantalla azul MOK, elige *Enroll MOK* con esa contraseña (el teclado está en QWERTY en esa pantalla).
+5. Reinicia otra vez cuando lo pida.
+6. Solo entonces instala/recompila `akmod-nvidia`.
 
 Tras una actualización de BIOS/EFI puede hacer falta repetir el `mokutil --import`.
 

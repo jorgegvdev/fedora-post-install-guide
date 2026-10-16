@@ -2,7 +2,7 @@
 
 Guía en español para dejar Fedora Workstation (GNOME) estable y productivo en un Lenovo LOQ (i7-13620H, RTX 4060), en dual boot con Windows 11 y con Secure Boot desactivado.
 
-**Empezá por el [índice](00-indice.md).**
+**Empieza por el [índice](00-indice.md).**
 
 ## Qué cubre
 
@@ -16,4 +16,4 @@ Dual boot, sistema base, RPM Fusion y codecs, NVIDIA híbrida (Optimus), apps, g
 
 ## Aviso
 
-Guía personal, no oficial. Los comandos están pensados para este equipo; revisalos antes de ejecutarlos en otro. Hacé backup antes de tocar particiones.
+Guía personal, no oficial. Los comandos están pensados para este equipo; revísalos antes de ejecutarlos en otro. Haz backup antes de tocar particiones.

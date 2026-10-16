@@ -22,18 +22,18 @@ Debe listar `akmod-nvidia`.
 ```bash
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.8/install.sh | bash
 ```
-Reinstalar sobre la existente actualiza nvm; tus versiones de Node se conservan. Abrí una terminal nueva y verificá:
+Reinstalar sobre la existente actualiza nvm; tus versiones de Node se conservan. Abre una terminal nueva y verifica:
 ```bash
 nvm --version
 ```
 
-### 3. Variable de DeepSeek (solo si usás `claude-ds`)
-La doc de DeepSeek usa `ANTHROPIC_API_KEY`; tu alias usa `ANTHROPIC_AUTH_TOKEN`. Si `claude-ds` funciona, no toques nada. Si falla la autenticación, editá la línea del alias en `~/.bashrc`:
+### 3. Variable de DeepSeek (solo si usas `claude-ds`)
+La doc de DeepSeek usa `ANTHROPIC_API_KEY`; tu alias usa `ANTHROPIC_AUTH_TOKEN`. Si `claude-ds` funciona, no toques nada. Si falla la autenticación, edita la línea del alias en `~/.bashrc`:
 
 ```bash
 alias claude-ds='ANTHROPIC_BASE_URL=https://api.deepseek.com/anthropic ANTHROPIC_API_KEY="$DEEPSEEK_API_KEY" claude'
 ```
-Recargá con `source ~/.bashrc`.
+Recarga con `source ~/.bashrc`.
 
 ## Parte B — Cambios en la guía
 
@@ -52,7 +52,7 @@ Recargá con `source ~/.bashrc`.
 Ninguno es obligatorio.
 
 ### 1. Reloj en UTC (opcional)
-Tu Fedora usa `set-local-rtc 1`, que funciona. El man de `timedatectl` recomienda UTC porque la hora local da problemas con el horario de verano. Migrá solo si ves la hora corrida.
+Tu Fedora usa `set-local-rtc 1`, que funciona. El man de `timedatectl` recomienda UTC porque la hora local da problemas con el horario de verano. Migra solo si ves la hora corrida.
 
 En Windows, terminal **como administrador**:
 ```
@@ -62,7 +62,7 @@ En Fedora:
 ```bash
 sudo timedatectl set-local-rtc 0
 ```
-Verificar: `timedatectl` debe decir `RTC in local TZ: no`. Después sincronizá la hora en Windows (*Configuración → Hora e idioma*).
+Verificar: `timedatectl` debe decir `RTC in local TZ: no`. Después sincroniza la hora en Windows (*Configuración → Hora e idioma*).
 
 ### 2. Chequeo de Flathub (diagnóstico)
 ```bash
@@ -74,7 +74,7 @@ La columna `filter` de `flathub` debe estar vacía. La etiqueta `filtered` en `o
 ```bash
 sudo os-prober
 ```
-Si no imprime nada, revisá que Windows esté instalado en modo UEFI.
+Si no imprime nada, revisa que Windows esté instalado en modo UEFI.
 
 ## Verificado sin cambios en el sistema
 - `__NV_PRIME_RENDER_OFFLOAD` (con `__`) es la forma que documenta NVIDIA.

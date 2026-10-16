@@ -24,7 +24,7 @@ Detectado desde Windows con PowerShell.
 ```bash
 lspci | rg -i "vga|3d|network"
 ```
-Lista GPUs y placa de red (`rg` = ripgrep, ver [08](../general/08-desarrollo.md)). Si aún no lo tenés, usá `lspci | grep -Ei "vga|3d|network"`.
+Lista GPUs y placa de red (`rg` = ripgrep, ver [08](../general/08-desarrollo.md)). Si aún no lo tienes, usa `lspci | grep -Ei "vga|3d|network"`.
 
 ```bash
 lsblk -f

@@ -5,15 +5,15 @@
 | Va nativo (`dnf`) si… | Va Flatpak si… |
 |-----------------------|----------------|
 | Toca hardware, drivers o el sistema | Es una app gráfica "de usuario" |
-| Es herramienta de desarrollo / CLI | Querés versión nueva sin depender de Fedora |
-| Necesita ver todo el sistema (Docker, compiladores) | Querés aislarla (chat, música, notas) |
+| Es herramienta de desarrollo / CLI | Quieres versión nueva sin depender de Fedora |
+| Necesita ver todo el sistema (Docker, compiladores) | Quieres aislarla (chat, música, notas) |
 | Es parte del stack de gaming | No necesita integrarse con otras apps |
 
 **Por qué:** una app Flatpak vive en una caja (sandbox) y no ve tus herramientas del sistema. Perfecto para Discord, un problema para un editor que necesita tu `node` o tu `docker`.
 
 ## Nativo (dnf)
 
-Instalá de a una, solo lo que uses.
+Instala una por una, solo lo que uses.
 
 | Paquete | Para qué |
 |---------|----------|
@@ -37,13 +37,13 @@ AppImages (necesitan FUSE 2, que Fedora no trae por defecto):
 ```bash
 sudo dnf install fuse fuse-libs
 ```
-Un AppImage corre con tus permisos y sin sandbox: ejecutá solo los que confíes.
+Un AppImage corre con tus permisos y sin sandbox: ejecuta solo los que confíes.
 
 Archivos `.rar` (`unrar` viene de RPM Fusion nonfree, ver [04](04-repos-codecs.md)):
 ```bash
 sudo dnf install unrar
 ```
-Archivos `.7z`: revisá primero cuál paquete existe en tu versión con `dnf info 7zip p7zip`, e instalá el que aparezca.
+Archivos `.7z`: revisa primero cuál paquete existe en tu versión con `dnf info 7zip p7zip`, e instala el que aparezca.
 
 ## Flatpak (Flathub)
 

@@ -4,8 +4,8 @@ Guía para dejar Fedora Workstation (GNOME) estable y productivo en este equipo,
 
 ## Cómo usar esta guía
 
-- Seguí los archivos **en orden**. Cada uno es independiente, pero el orden evita problemas (ej: sin RPM Fusion no hay NVIDIA ni codecs).
-- Cada comando va solo, con su explicación. Copiá y pegá de a uno.
+- Sigue los archivos **en orden**. Cada uno es independiente, pero el orden evita problemas (ej: sin RPM Fusion no hay NVIDIA ni codecs).
+- Cada comando va solo, con su explicación. Copia y pega uno por uno.
 - Estructura de cada archivo: **Qué es** → **Por qué importa** → **Pasos** → **Verificar**.
 - Los comandos usan `$(rpm -E %fedora)` donde hace falta, así sirven igual en Fedora 44 y 45.
 
@@ -35,7 +35,7 @@ La guía se divide en dos carpetas: **`general/`** sirve para cualquier Fedora W
 
 - **Fedora 44** es la estable actual (salió el 28/04/2026, GNOME 50).
 - **Fedora 45** (GNOME 51) tiene fecha objetivo **20/10/2026** (fallback 27/10 y 03/11).
-- Recomendación: si instalás **ahora**, usá 44. Si podés esperar unos días, 45. Extensiones de GNOME y driver NVIDIA suelen tardar un poco en estabilizarse con una versión nueva; esperar 2-3 semanas tras un lanzamiento es una opinión de comunidad, no una regla oficial.
+- Recomendación: si instalas **ahora**, usa 44. Si puedes esperar unos días, 45. Extensiones de GNOME y driver NVIDIA suelen tardar un poco en estabilizarse con una versión nueva; esperar 2-3 semanas tras un lanzamiento es una opinión de comunidad, no una regla oficial.
 
 ## Regla de oro: nativo vs Flatpak
 
@@ -54,4 +54,4 @@ Detalle completo en [06-apps](general/06-apps.md).
 - OpenCode: [Providers](https://opencode.ai/docs/providers/)
 - Fedora Docs: [Gaming](https://docs.fedoraproject.org/en-US/gaming/)
 
-> Los paquetes y versiones cambian. Si un comando falla, revisá primero la fuente oficial enlazada en esa sección.
+> Los paquetes y versiones cambian. Si un comando falla, revisa primero la fuente oficial enlazada en esa sección.

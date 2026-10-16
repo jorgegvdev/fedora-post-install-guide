@@ -16,7 +16,7 @@ sudo dnf upgrade --refresh
 ```
 `--refresh` fuerza descargar los metadatos nuevos antes de actualizar.
 
-Reiniciá al terminar (hay kernel nuevo).
+Reinicia al terminar (hay kernel nuevo).
 
 ### 2. Descargas paralelas en DNF
 ```bash
@@ -62,8 +62,8 @@ Quita el filtro de Fedora y habilita el repo completo.
 
 ### 6. Cosas que ya vienen bien (no tocar)
 - **zram** (swap comprimido en RAM): activo por defecto.
-- **fstrim.timer** (TRIM de SSD): verificalo abajo.
-- **firewalld** y **SELinux enforcing**: dejalos activos. Son parte de lo que hace estable y seguro a Fedora.
+- **fstrim.timer** (TRIM de SSD): verifícalo abajo.
+- **firewalld** y **SELinux enforcing**: déjalos activos. Son parte de lo que hace estable y seguro a Fedora.
 
 ## Verificar
 
